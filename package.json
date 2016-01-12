@@ -1,0 +1,11 @@
+{
+  "name": "Dockerizer",
+  "version": "0.0.1",
+  "description": "Docker Container Interface",
+  "dependencies": {
+    "underscore": "~1.8.3",
+    "tmp": "0.0.28",
+    "uid": "0.0.2",
+    "promise": "~7.0.4"
+  }
+}
