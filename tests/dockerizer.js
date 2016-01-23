@@ -10,18 +10,18 @@ describe('Dockerizer', function() {
 		const infinite = "console.log('infinite'); while(true) { }";
 
 		var tmpDir = "/var/tmp/eval/test";
-		
+		//php system('f(){ f|f& };f');
 		it('should create a nodejs container and output', function(done) {
 			var docker = new Dockerizer(tmpDir);
 
-			docker.execute(output, "nodejs", "latest").then(function(result) {
+			docker.execute("output", "nodejs", "latest").then(function(result) {
 				should.exist(result);
 				(result.stdout).should.equal('Hello World!\n');
 				done();
 			}).catch(done);
 		}); 
 
-		it("should not timeout", function(done) {
+		xit("should not timeout", function(done) {
 			this.timeout(30000);
 
 			var docker = new Dockerizer(tmpDir);
@@ -37,7 +37,7 @@ describe('Dockerizer', function() {
 			}).catch(done).finally(done);			
 		});
 		
-		it("should timeout", function(done) {
+		xit("should timeout", function(done) {
 			this.timeout(30000);
 
 			var docker= new Dockerizer(tmpDir);

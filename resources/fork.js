@@ -98,6 +98,7 @@ DockerFork.prototype.execute = function(filename) {
 
 DockerFork.prototype.fork = function(command, process) {
 	//Execute docker command
+	console.log(command);
 	var promise = new Promise(function(resolve, reject) {
 		var child = shell.exec(command, function(error, stdout, stderr) {
 			if(error && error.kill === true) {

@@ -7,11 +7,10 @@ var Generator = function() {
 	this.shouldRemove = true;
 	this.mounts = [];
 	this.domain = "literphor";
-
-	this.runCMD = "sudo docker run";
-	this.stopCMD = "sudo docker stop";
-	this.removeCMD = "sudo docker rm";
-	this.existsCMD = "sudo docker ps | grep";
+	this.runCMD = "docker run";
+	this.stopCMD = "docker stop";
+	this.removeCMD = "docker rm";
+	this.existsCMD = "docker ps | grep";
 
 	this.workDir = "";
 };
@@ -25,22 +24,24 @@ Generator.prototype.docker = function(name, version, repository) {
 	var image = path.join(this.domain, repository) + ":" + version;
 
 	var mounts = this.mounts.reduce(function(pre, mount) {
-		return pre + " -v " + mount.host + ":" + mount.guest; 
+		return pre + "-v " + mount.host + ":" + mount.guest; 
 	}, "");
 
 	parts.push(this.runCMD);
-	parts.push(" --name " + name);
+	parts.push("--name " + name);
 
 	if(this.shouldRemove === true) {
-		parts.push(" --rm");
+		parts.push("--rm");
 	}
 
 	if(this.workDir !== "") {
-		parts.push(" -w " + this.workDir);
+		parts.push("-w " + this.workDir);
 	}
 	
 	parts.push(mounts);
 	parts.push(image);
+	//parts.push("cp -a . /home/untrusted; chown -R untrusted:untrusted /home/untrusted; cd /home/untrusted; su - untrusted;");
+	//parts.push('chroot /scripts;');
 
 	return parts.join(" ");
 };

@@ -74,7 +74,7 @@ Dockerizer.prototype.execute = function(code, platform, version, timeout) {
 		this.modifyOutput(data);
 		return Promise.resolve(data);
 	}.bind(this)).finally(function() {
-		temper.cleanup();
+		//temper.cleanup();
 	});
 };
 
