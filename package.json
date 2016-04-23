@@ -1,11 +1,33 @@
 {
-  "name": "Dockerizer",
-  "version": "0.0.1",
+  "name": "dockerizer",
+  "version": "0.1.0",
   "description": "Docker Container Interface",
   "dependencies": {
     "underscore": "~1.8.3",
     "tmp": "0.0.28",
     "uid": "0.0.2",
     "promise": "~7.0.4"
+  },
+  "main": "dockerizer.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ALJCepeda/dockerizer"
+  },
+  "keywords": [
+    "docker",
+    "dockerizer",
+    "node",
+    "nodejs"
+  ],
+  "author": "Alfred J Cepeda",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/ALJCepeda/dockerizer/issues"
   }
 }
